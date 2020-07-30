@@ -1,0 +1,233 @@
+{
+	"info": {
+		"_postman_id": "72dc3c19-aa7d-416b-b3b4-7c706eef0579",
+		"name": "Mensajes GABO Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Solicitud Tokens",
+			"item": [
+				{
+					"name": "solicitud toquen PRUBAS IS por BUS",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic WW5td2o3b2FmdmtWZTRDV0N3U2VfSkRTZEVNYTpyZXRpNjJidVBTVnFwWko0X3FmdnprX1hwdWdh",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"jlrgpruebas11@yopmail.com\",\r\n  \"password\": \"1234567890aA\"\r\n}\r\n\r\n"
+						},
+						"url": {
+							"raw": "https://40.117.41.11:8243/loginscvm/gabo",
+							"protocol": "https",
+							"host": [
+								"40",
+								"117",
+								"41",
+								"11"
+							],
+							"port": "8243",
+							"path": [
+								"loginscvm",
+								"gabo"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "movilidad",
+			"item": [
+				{
+					"name": "bus Medios Transporte lista",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://40.117.41.11:8243/gabomovility/movility/api/v1/conveyances/",
+							"protocol": "https",
+							"host": [
+								"40",
+								"117",
+								"41",
+								"11"
+							],
+							"port": "8243",
+							"path": [
+								"gabomovility",
+								"movility",
+								"api",
+								"v1",
+								"conveyances",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bus registrar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer c351bed5-658a-3a27-abf8-234be15c4209",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"checkOut\":\"11:00 AM\",\n \"checkIn\":\"11:00 PM\",\n \"convenyanceId\": 1,\n \"destination\": \"string\",\n \"locationDestination\": \"string\",\n \"locationOrigin\": \"string\",\n \"ocupationId\": 1,\n \"origin\": \"string\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://40.117.41.11:8243/gabomovility/movility/api/v1/movilityregistry/",
+							"protocol": "https",
+							"host": [
+								"40",
+								"117",
+								"41",
+								"11"
+							],
+							"port": "8243",
+							"path": [
+								"gabomovility",
+								"movility",
+								"api",
+								"v1",
+								"movilityregistry",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bus ultimo registro",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer c351bed5-658a-3a27-abf8-234be15c4209"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://40.117.41.11:8243/gabomovility/movility/api/v1/movility/last",
+							"protocol": "https",
+							"host": [
+								"40",
+								"117",
+								"41",
+								"11"
+							],
+							"port": "8243",
+							"path": [
+								"gabomovility",
+								"movility",
+								"api",
+								"v1",
+								"movility",
+								"last"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bus enviar certificado al correo",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer c351bed5-658a-3a27-abf8-234be15c4209"
+							},
+							{
+								"key": "user",
+								"value": "APP",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "data_origin",
+								"value": "app",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://40.117.41.11:8243/gabomovility/movility/api/v1/movility/certificate",
+							"protocol": "https",
+							"host": [
+								"40",
+								"117",
+								"41",
+								"11"
+							],
+							"port": "8243",
+							"path": [
+								"gabomovility",
+								"movility",
+								"api",
+								"v1",
+								"movility",
+								"certificate"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
