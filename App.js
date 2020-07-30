@@ -10,7 +10,7 @@ class PruebaGabo extends Component {
     this.state = {
       loading: false,
       medioTransporte:[],
-      url: 'https://40.117.41.11:8243/gabomovility/movility/api/v1/conveyances/?Authorization=ecd29404-08df-3ecd-862d-e5a774b1cb05'
+      url: 'https://40.117.41.11:8243/gabomovility'
     }
   }
 
