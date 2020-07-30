@@ -1,12 +1,39 @@
 
 import React, {Component} from 'react'
-import {View, Picker, Text, StyleSheet, Image, Button, Alert} from 'react-native'
+import {View, Picker, Text, StyleSheet, Image, Button, FlatList} from 'react-native'
 
 class PruebaGabo extends Component {
 
-  login(){
-    Alert.alert('Login de usuario')
+  constructor(props){
+    super(props);
+
+    this.state = {
+      loading: false,
+      medioTransporte:[],
+      url: 'https://40.117.41.11:8243/gabomovility/movility/api/v1/conveyances/?Authorization=ecd29404-08df-3ecd-862d-e5a774b1cb05'
+    }
   }
+
+  
+
+componentDidMount(){
+  this.getMedioTransporte();
+}
+
+  getMedioTransporte = () => {
+
+    this.setState({loading:true})
+
+    fetch(this.state.url)
+    .then(res => res.json())
+    .then( res=>{
+      this.setState({
+        medioTransporte: res.data,
+        loading: false
+      })
+    });
+  };
+
 
   render(){
     
@@ -51,11 +78,16 @@ class PruebaGabo extends Component {
          </View>
          <View style={styles.body}>
         <Text style={styles.textColor}>Medio de transporte</Text>
-       
-          <Picker>
-            <Picker.Item label="Java" value="java" />
-            <Picker.Item label="JavaScript" value="js" />
-          </Picker>
+        
+          <Picker data={this.state.medioTransporte}
+          renderItem={
+          ({item}) => <Text>{item.name}</Text>
+          }
+          keyExtractor={(item, index)=> index.toString()}
+          />
+            
+            
+         
          </View>
         <View style={styles.footer}>
         <View style={styles.footerLeft}>
